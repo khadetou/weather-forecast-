@@ -21,7 +21,7 @@ class WeatherForcastModel {
       cod: json['cod'] as String?,
       message: json['message'] as int?,
       cnt: json['cnt'] as int?,
-      lista: (json['list'] as List<dynamic>?)
+      lista: (json['lista'] as List<dynamic>?)
           ?.map((e) => Lista.fromJson(e as Map<String, dynamic>))
           .toList(),
       city: json['city'] == null
@@ -34,7 +34,7 @@ class WeatherForcastModel {
         'cod': cod,
         'message': message,
         'cnt': cnt,
-        'list': lista?.map((e) => e.toJson()).toList(),
+        'lista': lista?.map((e) => e.toJson()).toList(),
         'city': city?.toJson(),
       };
 }

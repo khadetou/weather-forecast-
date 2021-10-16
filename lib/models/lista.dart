@@ -1,5 +1,6 @@
 import 'clouds.dart';
 import 'main.dart';
+import 'rain.dart';
 import 'sys.dart';
 import 'weather.dart';
 import 'wind.dart';
@@ -11,9 +12,10 @@ class Lista {
 	Clouds? clouds;
 	Wind? wind;
 	int? visibility;
-	int? pop;
+	double? pop;
 	Sys? sys;
 	String? dtTxt;
+	Rain? rain;
 
 	Lista({
 		this.dt, 
@@ -25,6 +27,7 @@ class Lista {
 		this.pop, 
 		this.sys, 
 		this.dtTxt, 
+		this.rain, 
 	});
 
 	factory Lista.fromJson(Map<String, dynamic> json) => Lista(
@@ -42,11 +45,14 @@ class Lista {
 						? null
 						: Wind.fromJson(json['wind'] as Map<String, dynamic>),
 				visibility: json['visibility'] as int?,
-				pop: json['pop'] as int?,
+				pop: (json['pop'] as num?)?.toDouble(),
 				sys: json['sys'] == null
 						? null
 						: Sys.fromJson(json['sys'] as Map<String, dynamic>),
 				dtTxt: json['dt_txt'] as String?,
+				rain: json['rain'] == null
+						? null
+						: Rain.fromJson(json['rain'] as Map<String, dynamic>),
 			);
 
 	Map<String, dynamic> toJson() => {
@@ -59,5 +65,6 @@ class Lista {
 				'pop': pop,
 				'sys': sys?.toJson(),
 				'dt_txt': dtTxt,
+				'rain': rain?.toJson(),
 			};
 }
