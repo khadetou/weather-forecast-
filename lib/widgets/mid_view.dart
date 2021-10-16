@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
 import "package:flutter/material.dart";
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:weather_forecast/models/weather_forcast_model.dart';
 import 'package:weather_forecast/util/forecast_util.dart';
 
+// ignore: non_constant_identifier_names
 Widget MidView({AsyncSnapshot<WeatherForcastModel>? snapshot}) {
   var forecasList = snapshot!.data!.lista;
   var city = snapshot.data!.city!.name;
@@ -32,9 +34,14 @@ Widget MidView({AsyncSnapshot<WeatherForcastModel>? snapshot}) {
       ),
       const SizedBox(height: 10),
       const Icon(
-        Icons.wb_sunny,
+        FontAwesomeIcons.cloud,
         size: 195,
+        color: Colors.pinkAccent,
       ),
+      // const Icon(
+      //   Icons.wb_sunny,
+      //   size: 195,
+      // ),
       Padding(
         padding: const EdgeInsets.symmetric(vertical: 0.8, horizontal: 12),
         child: Row(
@@ -66,7 +73,7 @@ Widget MidView({AsyncSnapshot<WeatherForcastModel>? snapshot}) {
                     "${forecasList[0].wind!.speed!.toStringAsFixed(1)} mi/h",
                   ),
                   const Icon(
-                    Icons.arrow_forward,
+                    FontAwesomeIcons.wind,
                     size: 20,
                     color: Colors.brown,
                   ),
@@ -81,7 +88,7 @@ Widget MidView({AsyncSnapshot<WeatherForcastModel>? snapshot}) {
                     "${forecasList[0].main!.humidity!.toStringAsFixed(1)} %",
                   ),
                   const Icon(
-                    Icons.hot_tub,
+                    FontAwesomeIcons.solidGrinBeamSweat,
                     size: 20,
                     color: Colors.brown,
                   ),
@@ -96,7 +103,7 @@ Widget MidView({AsyncSnapshot<WeatherForcastModel>? snapshot}) {
                     "${Util.Celcius(Ferenheit: forecasList[0].main!.tempMax).toStringAsFixed(0)}°C",
                   ),
                   const Icon(
-                    Icons.wb_sunny,
+                    FontAwesomeIcons.temperatureHigh,
                     size: 20,
                     color: Colors.brown,
                   ),
