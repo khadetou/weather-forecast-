@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:weather_forecast/models/weather_forcast_model.dart';
 import 'package:weather_forecast/network/network.dart';
+import 'package:weather_forecast/widgets/textfield_view.dart';
+import '../widgets/mid_view.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -20,16 +22,33 @@ class _HomeState extends State<Home> {
 
     forecastObj = Network().getWeatherforcast(cityName: _cityName);
 
-    forecastObj!.then((weather) {
-      print(weather.lista![0].main!.temp);
-    });
+    //To check if we are receiving some data or not
+    // forecastObj!.then((weather) {
+    //   print(weather.lista![0].main!.temp);
+    // });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Forecast"),
+      body: ListView(
+        children: <Widget>[
+          const TextFieldView(),
+          FutureBuilder<WeatherForcastModel>(
+              future: forecastObj,
+              builder: (BuildContext context,
+                  AsyncSnapshot<WeatherForcastModel> snapshot) {
+                if (snapshot.hasData) {
+                  return Column(
+                    children: [
+                      MidView(snapshot: snapshot),
+                    ],
+                  );
+                } else {
+                  return const CircularProgressIndicator();
+                }
+              })
+        ],
       ),
     );
   }
