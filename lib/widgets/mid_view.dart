@@ -6,8 +6,7 @@ import 'package:weather_forecast/models/weather_forcast_model.dart';
 import 'package:weather_forecast/util/convert_icon.dart';
 import 'package:weather_forecast/util/forecast_util.dart';
 
-// ignore: non_constant_identifier_names
-Widget MidView({AsyncSnapshot<WeatherForcastModel>? snapshot}) {
+Widget midView({AsyncSnapshot<WeatherForcastModel>? snapshot}) {
   var forecasList = snapshot!.data!.lista;
   var city = snapshot.data!.city!.name;
   var country = snapshot.data!.city!.country;
