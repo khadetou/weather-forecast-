@@ -19,6 +19,7 @@ Widget bottomView(
         height: 170,
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
         child: ListView.separated(
+          scrollDirection: Axis.horizontal,
           itemCount: forecastList!.length,
           separatorBuilder: (BuildContext context, int index) {
             return const SizedBox(

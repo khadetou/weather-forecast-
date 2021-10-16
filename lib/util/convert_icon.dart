@@ -7,7 +7,7 @@ Widget getWeatherIcon(
   switch (weatherDescription) {
     case "Clear":
       {
-        return Icon(FontAwesomeIcons.sun, color: color, size: size);
+        return Icon(Icons.wb_sunny, color: color, size: size);
       }
     case "Clouds":
       {
