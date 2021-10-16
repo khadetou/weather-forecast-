@@ -39,7 +39,6 @@ class _HomeState extends State<Home> {
               future: forecastObj,
               builder: (BuildContext context,
                   AsyncSnapshot<WeatherForcastModel> snapshot) {
-                print(snapshot);
                 if (snapshot.hasData) {
                   return Column(
                     children: [
@@ -75,7 +74,11 @@ class _HomeState extends State<Home> {
         ),
         onSubmitted: (value) {
           setState(() {
-            _cityName = value;
+            if (value != "") {
+              _cityName = value;
+            } else {
+              _cityName = "dakar";
+            }
             forecastObj = getWeather(city: _cityName);
           });
         });
