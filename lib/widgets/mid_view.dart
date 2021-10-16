@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:weather_forecast/models/weather_forcast_model.dart';
+import 'package:weather_forecast/util/convert_icon.dart';
 import 'package:weather_forecast/util/forecast_util.dart';
 
 // ignore: non_constant_identifier_names
@@ -33,11 +34,18 @@ Widget MidView({AsyncSnapshot<WeatherForcastModel>? snapshot}) {
         style: const TextStyle(fontSize: 20),
       ),
       const SizedBox(height: 10),
-      const Icon(
-        FontAwesomeIcons.cloud,
-        size: 195,
-        color: Colors.pinkAccent,
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: getWeatherIcon(
+            weatherDescription: forecasList[0].weather![0].main,
+            color: Colors.pinkAccent,
+            size: 195),
       ),
+      // const Icon(
+      //   FontAwesomeIcons.cloud,
+      //   size: 195,
+      //   color: Colors.pinkAccent,
+      // ),
       // const Icon(
       //   Icons.wb_sunny,
       //   size: 195,
