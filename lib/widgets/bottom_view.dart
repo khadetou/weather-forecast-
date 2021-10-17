@@ -8,12 +8,19 @@ Widget bottomView(
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     children: <Widget>[
+      const SizedBox(
+        height: 25,
+      ),
       Text(
-        "7-day weather forecast".toUpperCase(),
+        "5-day weather forecast".toUpperCase(),
         style: const TextStyle(
-          fontSize: 14,
+          fontSize: 17,
+          fontWeight: FontWeight.w600,
           color: Colors.black87,
         ),
+      ),
+      const SizedBox(
+        height: 15,
       ),
       Container(
         height: 170,
@@ -32,7 +39,7 @@ Widget bottomView(
                 Radius.circular(10),
               ),
               child: Container(
-                width: MediaQuery.of(context).size.width / 2.7,
+                width: MediaQuery.of(context).size.width / 2.5,
                 height: 160,
                 child: forcastCard(snapshot: snapshot, index: index),
                 decoration: const BoxDecoration(

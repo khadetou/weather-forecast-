@@ -60,8 +60,10 @@ Widget midView({AsyncSnapshot<WeatherForcastModel>? snapshot}) {
                 fontSize: 34,
               ),
             ),
+            const SizedBox(width: 15),
             Text(
               forecasList[0].weather![0].description!.toUpperCase(),
+              style: const TextStyle(fontSize: 18),
             ),
           ],
         ),
@@ -78,10 +80,14 @@ Widget midView({AsyncSnapshot<WeatherForcastModel>? snapshot}) {
                 children: <Widget>[
                   Text(
                     "${forecasList[0].wind!.speed!.toStringAsFixed(1)} mi/h",
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                  const SizedBox(
+                    height: 5,
                   ),
                   const Icon(
                     FontAwesomeIcons.wind,
-                    size: 20,
+                    size: 25,
                     color: Colors.brown,
                   ),
                 ],
@@ -93,10 +99,14 @@ Widget midView({AsyncSnapshot<WeatherForcastModel>? snapshot}) {
                 children: <Widget>[
                   Text(
                     "${forecasList[0].main!.humidity!.toStringAsFixed(1)} %",
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                  const SizedBox(
+                    height: 5,
                   ),
                   const Icon(
                     FontAwesomeIcons.solidGrinBeamSweat,
-                    size: 20,
+                    size: 25,
                     color: Colors.brown,
                   ),
                 ],
@@ -108,10 +118,14 @@ Widget midView({AsyncSnapshot<WeatherForcastModel>? snapshot}) {
                 children: <Widget>[
                   Text(
                     "${Util.Celcius(Ferenheit: forecasList[0].main!.tempMax).toStringAsFixed(0)}°C",
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                  const SizedBox(
+                    height: 5,
                   ),
                   const Icon(
                     FontAwesomeIcons.temperatureHigh,
-                    size: 20,
+                    size: 25,
                     color: Colors.brown,
                   ),
                 ],
